@@ -42,7 +42,7 @@ static struct PyModuleDef X11GostModule = {
     "x11_gost_hash",
     "...",
     -1,
-    X11gostMethods
+    X11GostMethods
 };
 
 PyMODINIT_FUNC PyInit_x11_gost_hash(void) {
