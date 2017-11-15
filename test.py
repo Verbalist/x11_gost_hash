@@ -1,4 +1,5 @@
 import x11_gost_hash
+import sys
 from binascii import unhexlify, hexlify
 
 import unittest
@@ -35,15 +36,20 @@ header_hex = ("03000000" +
 
 best_hash = 'b0d98c92637728f6770e87d505ca390e1ed653c71fa4654491abae235b080000'
 
+
 class TestSequenceFunctions(unittest.TestCase):
 
     def setUp(self):
         self.block_header = unhexlify(header_hex)
+        print(self.block_header)
         self.best_hash = best_hash
 
     def test_x11_gost_hash(self):
         self.pow_hash = hexlify(x11_gost_hash.getPoWHash(self.block_header))
-        self.assertEqual(self.pow_hash, self.best_hash)
+        if sys.version[0] == 2:
+            self.assertEqual(self.pow_hash, self.best_hash)
+        else:
+            self.assertEqual(self.pow_hash, bytes(self.best_hash, 'utf-8'))
 
 
 if __name__ == '__main__':

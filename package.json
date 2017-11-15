@@ -1,0 +1,16 @@
+{
+  "name": "x11GostHash",
+  "version": "0.0.0",
+  "description": "Node.js Addons x11GostHash",
+  "main": "x11_gost_hash.js",
+  "private": true,
+  "dependencies": {
+    "bindings": "~1.2.1",
+    "nan": "^2.0.0",
+    "utf8": "^2.1.2"
+  },
+  "scripts": {
+    "test": "node x11_gost_hash.js"
+  },
+  "gypfile": true
+}
